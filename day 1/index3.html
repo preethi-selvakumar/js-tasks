@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 - JS3</title>
+</head>
+<body>
+    <h1>Check the Console for Scope Differences</h1>
+
+    <script>
+        // Function Scope (var)
+        function testVar() {
+            var a = 10;
+            console.log(a);
+        }
+        testVar();
+
+        // Block Scope (let and const)
+        {
+            let b = 20;
+            const c = 30;
+            console.log(b, c);
+        }
+    </script>
+</body>
+</html>
