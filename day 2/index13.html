@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 - JS26</title>
+</head>
+<body>
+
+    <h1>Check Console for Leap Year</h1>
+    
+    <script>
+        let year = 2025;
+        let isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+
+        console.log(isLeap ? "Leap Year" : "Not a Leap Year");
+    </script>
+
+</body>
+</html>
