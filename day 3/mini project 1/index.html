@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.Simple Login System</title>
+</head>
+<body>
+    <h1>Check Console for Simple Login System</h1>
+
+    <script>
+        // 1. User enters username and password via prompt
+        let enteredUsername = prompt("Enter your username:");
+        console.log("User entered username: " + enteredUsername); 
+
+        let enteredPassword = prompt("Enter your password:");
+        console.log("User entered password: " + enteredPassword); 
+
+        // 2. Checking credentials
+        const storedUsername = "admin";
+        const storedPassword = "1234";
+
+        // 3. Output: Display a login success or failure message in the console
+        if (enteredUsername === storedUsername && enteredPassword === storedPassword) 
+        {
+            console.log("Login Successful!");
+        } 
+        else {
+            console.log("Invalid credentials!");
+        }
+    </script>
+</body>
+</html>

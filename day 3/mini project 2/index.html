@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.Traffic Light System</title>
+</head>
+<body>
+    <h2>Check Console for Traffic Light System Output</h2>
+
+    <script>
+        // User enters a traffic light color via prompt
+        let color = prompt("Enter a traffic light color (red, yellow, green):");
+
+        // Checking traffic light conditions using switch
+        switch (color) {
+            case "red":
+                console.log("Stop!");
+                break;
+            case "yellow":
+                console.log("Ready..!");
+                break;
+            case "green":
+                console.log("Go!");
+                break;
+            default:
+                console.log("Invalid color!");
+        }
+    </script>
+</body>
+</html>

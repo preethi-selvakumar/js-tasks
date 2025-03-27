@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 - JS32</title>
+</head>
+<body>
+    <h1>Check Console for Login & Admin Status</h1>
+
+    <script>
+        let isLoggedIn = true; 
+        let isAdmin = true;
+
+        if (isLoggedIn) 
+        {  
+            if (isAdmin) 
+            {  
+                console.log("Access granted: Welcome, Admin!");  
+            } 
+            else {  
+                console.log(" Access granted: Welcome, User!");  
+            }  
+        } else {  
+            console.log(" Access denied: Please log in!");  
+        }
+    </script>
+</body>
+</html>
