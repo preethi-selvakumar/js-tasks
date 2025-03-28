@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.Shopping Cart Discount</title>
+</head>
+<body>
+    <h1>Shopping Cart Discount Calculator</h1>
+    <p>Check the console to see the output.</p>
+
+    <script>
+        let price = 1000;
+        let membership = "Gold"; 
+        let discount = 0;
+
+        switch (membership) {
+            case "Platinum":
+                discount = 0.25; // 25% discount 
+                break;
+            case "Gold":
+                discount = 0.2; // 20% discount
+                break;
+            case "Silver":
+                discount = 0.1; // 10% discount
+                break;
+            case "Bronze":
+                discount = 0.05; // 5% discount
+                break;
+            default:
+                discount = 0; // No discount
+        }
+
+        let discountAmount = price * discount;  
+        let finalPrice = price - discountAmount;  
+
+        console.log("Membership: " + membership);
+        console.log("Original Price: $" + price);
+        console.log("Discount: " + (discount * 100) + "%");
+        console.log("Final Price: $" + finalPrice);
+    </script>
+</body>
+</html>

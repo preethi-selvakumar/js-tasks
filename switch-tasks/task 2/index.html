@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.Season Based On The Month</title>
+</head>
+<body>
+    <h1>Check Console to see the Output</h1>
+    
+    <script>
+        let month = parseInt(prompt("Enter a month number (1-12):")); 
+
+        switch (month) {
+            case 1:
+            case 2:
+            case 12:
+                console.log("Winter");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                console.log("Spring");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                console.log("Summer");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                console.log("Autumn");
+                break;
+            default:
+                console.log("Invalid month! Enter a number between 1 and 12.");
+        }
+    </script>
+
+</body>
+</html>

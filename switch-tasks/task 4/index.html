@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.Restaurant Menu</title>
+</head>
+<body>
+
+    <h2>Check Console to see the Output</h2>
+
+    <script>
+        let dish = prompt("Enter a dish (Pizza, Burger, Pasta, Salad):");
+
+        switch (dish) {
+            case "Pizza":
+            case "pizza":
+            case "PIZZA":
+                console.log("Pizza: A delicious cheesy delight with toppings.");
+                break;
+            case "Burger":
+            case "burger":
+            case "BURGER":
+                console.log("Burger: A tasty sandwich with a juicy patty.");
+                break;
+            case "Pasta":
+            case "pasta":
+            case "PASTA":
+                console.log("Pasta: Italian-style noodles with rich sauce.");
+                break;
+            case "Salad":
+            case "salad":
+            case "SALAD":
+                console.log("Salad: A fresh and healthy mix of veggies.");
+                break;
+            default:
+                console.log("Dish not available.");
+        }
+    </script>
+
+</body>
+</html>
