@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.Multiplication Table Generator</title>
+</head>
+<body>
+
+    <h1>Check the console to see the Output</h1>
+
+    <script>
+        // 1. User Input
+        let num = prompt("Enter a number:");
+
+        // 2. Loop Execution
+        if (num && !isNaN(num)) { 
+            // 3. Multiplication Calculation
+            for (let i = 1; i <= 10; i++) {
+                // 4. Output Display
+                console.log(num + " x " + i + " = " + (num * i));
+            }
+        } else {
+            console.log("Please enter a valid number."); 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Sum of Digits of a Number</title>
+</head>
+
+<body>
+
+    <h1>Check the console to see the Output</h1>
+
+    <script>
+        // 1.User Input
+        let number = parseInt(prompt("Enter a positive number:"));  
+
+        // Initialize sum
+        let totalSum = 0;  
+
+        // 2,3 Digit Extraction and Summation Process
+        while (number > 0) {
+            let currentDigit = number % 10;      
+            totalSum += currentDigit;           
+            number = Math.floor(number / 10);    
+        }
+
+        // 4.Output Display
+        console.log("The sum of the digits is: " + totalSum);
+
+    </script>
+</body>
+
+</html>
