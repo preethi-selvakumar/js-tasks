@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.Student Grade Calculator</title>
+</head>
+<body>
+
+  <h1>Student Grade Calculator</h1>
+
+  <script>
+    function calculateGrade() {
+      // 1. User Input
+      let marks1 = prompt("Enter marks for Subject 1:");
+      let marks2 = prompt("Enter marks for Subject 2:");
+      let marks3 = prompt("Enter marks for Subject 3:");
+      let marks4 = prompt("Enter marks for Subject 4:");
+
+      // 2. Total & Average Calculation
+      let total = Number(marks1) + Number(marks2) + Number(marks3) + Number(marks4);
+      let average = total / 4;
+
+      // 3. Grade Assignment:
+      let grade;
+      if (average >= 90) {
+        grade = 'A';
+      } 
+      else if (average >= 75) {
+        grade = 'B';
+      } 
+      else if (average >= 50) {
+        grade = 'C';
+      } 
+      else {
+        grade = 'F';
+      }
+
+      // 4. Display Result
+      alert("Total Marks: " + total + "\nAverage: " + average + "\nGrade: " + grade);
+    }
+
+    calculateGrade();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.Grocery Shopping List</title>
+</head>
+<body>
+
+    <h1>Check Console to see the Grocery List</h1>
+
+    <script>
+        // 2. List Storage
+        let groceryList = [];
+        let count = 0; 
+
+        // 1. User Input
+        function addItem(item) {
+            groceryList[count] = item;
+            count++; 
+            console.log(item + " added.");
+        }
+
+        // 3. View Items
+        function viewItems() {
+            console.log("Your Grocery List:");
+            if (count === 0) {
+                console.log("List is empty.");
+            } else {
+                for (let i = 0; i < count; i++) {
+                    console.log((i + 1) + ". " + groceryList[i]); 
+                }
+            }
+        }
+
+        // 4. Remove Items
+        function removeItem(item) {
+            let newList = []; 
+            let newCount = 0;
+            let found = false; 
+
+            for (let i = 0; i < count; i++) {
+                if (groceryList[i] === item && !found) {
+                    found = true;
+                } else {
+                    newList[newCount] = groceryList[i]; 
+                    newCount++;
+                }
+            }
+
+            if (found) {
+                groceryList = newList; 
+                count = newCount; 
+                console.log(item + " removed.");
+            } else {
+                console.log(item + " not found in the list.");
+            }
+        }
+
+        
+        addItem("Milk");  
+        addItem("Bread");  
+        addItem("Eggs");  
+        viewItems();       
+        removeItem("Bread"); 
+        viewItems();      
+    </script>
+
+</body>
+</html>

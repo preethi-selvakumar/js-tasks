@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 - JS62</title>
+</head>
+<body>
+
+    <h1>Check the Console for Reversed Array</h1>
+
+    <script>
+        function reverseArray(arr) {
+            let reversed = [];
+            let index = 0;
+            
+            for (let i = arr.length - 1; i >= 0; i--) {
+                reversed[index] = arr[i];
+                index++;
+            }
+
+            console.log(reversed);
+        }
+
+        reverseArray([1, 2, 3, 4, 5]); 
+    </script>
+
+</body>
+</html>

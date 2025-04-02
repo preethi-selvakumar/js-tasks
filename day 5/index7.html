@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 - JS59</title>
+</head>
+<body>
+
+    <h1>Check the Console to see if the String is a Palindrome</h1>
+
+    <script>
+        function isPal(str) {
+            let left = 0;
+            let right = str.length - 1;
+            
+            while (left < right) {
+                if (str[left] !== str[right]) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        console.log(isPal("madam")); 
+        console.log(isPal("hello")); 
+    </script>
+
+</body>
+</html>
