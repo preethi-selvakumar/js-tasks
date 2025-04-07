@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 14</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script> // filter out fruits that do not contain the letter "a" from the fruits array
+        let fruits = ["Apple", "Banana", "Orange", "Lime", "Fig"];
+
+        let filteredFruits = [];
+
+        for (let i = 0; i < fruits.length; i++) {
+            if (!fruits[i].toLowerCase().includes("a")) {
+                filteredFruits.push(fruits[i]);
+            }
+        }
+
+        console.log(filteredFruits);
+
+    </script>
+</body>
+
+</html>
