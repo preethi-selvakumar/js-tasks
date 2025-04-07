@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Movie Booking System</title>
+</head>
+<body>
+    <h1>Check the console to see if your movie is booked or not</h1>
+
+    <script>
+        // 1. Movie List Storage
+        let movies = ["Leo", "Jawan", "Vidamuyarchi", "Retro", "Vikram"];
+
+        // To store booked movies 
+        let bookedMovies = [];
+
+        // 2. User Input
+        let movie = prompt("Enter the movie name you want to book (Start with capital letter, e.g. Leo, Jawan, Vikram):");
+
+        // 3. Check Availability & 4. Booking Confirmation
+        if (movies.includes(movie)) {
+            bookedMovies.push(movie);
+            console.log("Ticket booked:", movie);
+        } else {
+            console.log("Movie not avaliable.");
+        }
+        
+    </script>
+</body>
+</html>

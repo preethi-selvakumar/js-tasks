@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Product Inventory System</title>
+</head>
+
+<body>
+    <h1>Check the console to see if your product is added or removed</h1>
+
+    <script>
+        // 1. Inventory Storage
+        let inventory = [
+            { product: "Monitor", quantity: 8 },
+            { product: "Keyboard", quantity: 15 }
+        ];
+
+        // 2. Add Product Function
+        function addProduct(productName, qty) {
+            inventory.push({ product: productName, quantity: qty });
+            displayInventory();
+        }
+
+        // 3. Remove Product Function 
+        function removeProduct(productName) {
+            inventory = inventory.filter(item => item.product !== productName);
+            displayInventory();
+        }
+
+        // 4. Display Updated Inventory
+        function displayInventory() {
+            console.log("Updated Inventory:");
+            inventory.forEach(item => {
+                console.log(`Product: ${item.product}, Quantity: ${item.quantity}`);
+            });
+        }
+
+        addProduct("Mouse", 12);        
+        removeProduct("Keyboard");      
+        addProduct("Monitor", 5);        
+
+
+    </script>
+</body>
+
+</html>
