@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS80</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+
+            this.greet = function () {
+                return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+            };
+        }
+
+        const person1 = new Person("Preethi", 24);
+        const person2 = new Person("Anu", 25);
+
+        console.log(person1.greet()); 
+        console.log(person2.greet()); 
+
+
+    </script>
+</body>
+
+</html>

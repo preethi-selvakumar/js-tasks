@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Employee Management System</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Employee Details</h1>
+
+    <script>
+        // 1. Constructor Function
+        function Employee(name, position, salary) {
+            this.name = name;
+            this.position = position;
+            this.salary = salary;
+
+            // 2. Method to increase salary
+            this.increaseSalary = function (amount) {
+                this.salary += amount;
+            };
+        }
+
+        // 3. Create employee objects and store in array
+        const employees = [
+            new Employee("Preethi", "Mern Stack Developer", 60000),
+            new Employee("Anu", "Project Manager", 80000),
+            new Employee("Sam", "Designer", 50000)
+        ];
+
+        // 4. Increase salary for employee
+        employees[0].increaseSalary(2000);
+
+        // 5. Display employee details in table
+        console.table(employees);
+
+    </script>
+</body>
+
+</html>

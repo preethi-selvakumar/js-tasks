@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS91</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+       function Person(name, age) {
+            this.name = name;
+            this.age = age;
+       }
+
+       function Car(model, price, personName, personAge) {
+            this.model = model;
+            this.price = price;
+            this.owner = new Person(personName, personAge);
+       }
+
+       let car1 = new Car("Toyota", 20000, "Preethi", 24);
+
+       console.log("Car Model: ", car1.model);
+       console.log("Car Price: ", car1.price);
+       console.log("Owner Name: ", car1.owner.name);
+       console.log("Owner Age: ", car1.owner.age);
+
+
+    </script>
+</body>
+
+</html>

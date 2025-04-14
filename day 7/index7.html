@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS85</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+        function Person(name = "Anu", age = 25) {
+            this.name = name;
+            this.age = age;
+        }
+
+        let person1 = new Person("Preethi", 24);
+        let person2 = new Person();
+
+        console.log(person1.name, person1.age);
+        console.log(person2.name, person2.age);
+    </script>
+</body>
+
+</html>

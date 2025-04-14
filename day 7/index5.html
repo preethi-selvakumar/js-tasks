@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS83</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+        function Car(brand, model, year) {
+            this.brand = brand;
+            this.model = model;
+            this.year = year;
+
+            this.updateModel = function (newModel) {
+                this.model = newModel;  
+            };
+        }
+
+        let myCar = new Car("Toyota", "Corolla", 2020);
+
+        console.log("Before update:");
+        console.log("Brand:", myCar.brand);
+        console.log("Model:", myCar.model);
+        console.log("Year:", myCar.year);
+
+        myCar.updateModel("Camry"); 
+
+        console.log("After update:");
+        console.log("Brand:", myCar.brand);
+        console.log("Model:", myCar.model);
+        console.log("Year:", myCar.year);
+
+    </script>
+</body>
+
+</html>

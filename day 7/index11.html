@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS89</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+        function Employee(name, salary) {
+            this.name = name;
+            this.salary = salary;
+        }
+
+        function Manager(name, salary, department) {
+            Employee.call(this, name, salary);
+            this.department = department;
+        }
+
+        let mgr = new Manager("Preethi", 50000, "HR");
+
+        console.log("Manager Details:");
+        console.log("Name:", mgr.name); 
+        console.log("Salary:", mgr.salary);
+        console.log("Department:", mgr.department);
+    </script>
+</body>
+
+</html>

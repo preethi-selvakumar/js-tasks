@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Library Management System (Using Constructor)</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Book Details</h1>
+
+    <script>
+        // 1. Constructor function
+        function Book(title, author, year) {
+            this.title = title;
+            this.author = author;
+            this.year = year;
+        }
+
+        // 2. Array to store books
+        let books = [];
+
+        // 3. Function to add a book
+        function addBook(title, author, year) {
+            let newBook = new Book(title, author, year);
+            books.push(newBook);
+            console.log("Book added:");
+            console.log(newBook);
+            displayBooks(books);
+        }
+
+        // 4. Display all books
+        function displayBooks(bookArray) {
+            console.log("All Books:");
+            bookArray.forEach((book, index) => {
+                console.log(`${index + 1}. ${book.title} by ${book.author}, published in ${book.year}`);
+            });
+        }
+
+        // 5. Search book by title
+        function searchBook(title) {
+            let foundBooks = books.filter(book => book.title.toLowerCase().includes(title.toLowerCase()));
+            if (foundBooks.length > 0) {
+                console.log("Search Results:");
+                foundBooks.forEach((book, index) => {
+                    console.log(`${index + 1}. ${book.title} by ${book.author}, published in ${book.year}`);
+                });
+            } else {
+                console.log("No books found with that title.");
+            }
+        }
+
+        // 6. Add some books
+        addBook("Wings of Fire", "A.P.J Abdul Kalam", 1999);
+        addBook("Zero to One", "Peter Thiel", 2014);
+        addBook("The Alchemist", "Paulo Coelho", 1988);
+
+        searchBook("zero");
+
+    </script>
+</body>
+
+</html>

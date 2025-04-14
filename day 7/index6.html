@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS84</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+         function BankAccount(accountNumber, balance) {
+            this.accountNumber = accountNumber;
+            this.balance = balance;
+
+            this.deposit = function(amount) {
+                this.balance += amount;
+                console.log(`Deposited: ₹${amount}`);
+            };
+
+            this.withdraw = function(amount) {
+                if (this.balance >= amount) {
+                    this.balance -= amount;
+                    console.log(`Withdrew: ₹${amount}`);
+                } else {
+                    console.log("Insufficient balance");
+                }
+            };
+        }
+
+        let myAccount = new BankAccount("123456789", 1000);
+
+        // initial details
+        console.log("Initial Account Details:");
+        console.log("Account Number:", myAccount.accountNumber);
+        console.log("Balance:", myAccount.balance);
+
+        myAccount.deposit(500);
+
+        myAccount.withdraw(200);
+
+        // final details after transactions
+        console.log("Final Account Details:");
+        console.log("Account Number:", myAccount.accountNumber);
+        console.log("Balance:", myAccount.balance);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - JS90</title>
+</head>
+
+<body>
+    <h1>Check Console to see the Output</h1>
+
+    <script>
+        function Product(name, price, category) {
+            this.name = name;
+            this.price = price;
+            this.category = category;
+        }
+
+        // Constructor function for ShoppingCart
+        function ShoppingCart() {
+            this.items = [];  // Array to hold the products
+
+            // add a product to the cart
+            this.addProduct = function (product) {
+                this.items.push(product);
+            };
+
+            // remove a product from the cart by product name
+            this.removeProduct = function (productName) {
+                this.items = this.items.filter(function (item) {
+                    return item.name !== productName;  // Filtering out the product to be removed
+                });
+            };
+
+            // Calculate total price of all products in the cart
+            this.getTotal = function () {
+                return this.items.reduce(function (total, item) {
+                    return total + item.price;  // Summing up the prices of all items
+                }, 0);
+            };
+        }
+
+        // Create a new shopping cart
+        let cart = new ShoppingCart();
+
+        // Adding products to the cart
+        cart.addProduct(new Product("Laptop", 1000, "Electronics"));
+        cart.addProduct(new Product("Headphones", 200, "Accessories"));
+
+        // total price of all items in the cart
+        console.log("Total Price before removing:", cart.getTotal());
+
+        // Removing product (Headphones) from the cart
+        cart.removeProduct("Headphones");
+
+        // total price after removing a product
+        console.log("Total Price after removing:", cart.getTotal());
+
+
+    </script>
+</body>
+
+</html>
