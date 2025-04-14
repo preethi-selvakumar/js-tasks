@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Username Generator</title>
+</head>
+
+<body>
+    <h1>Generated Username Will Appear in the Console</h1>
+
+    <script>
+        // The user enters their first name and last name.
+        function generateUsername(firstName, lastName) {
+
+            // Taking the first 3 letters of the first name
+            let first3 =  firstName.slice(0, 3).toLowerCase();
+
+            // Taking the first 3 letters of the last name
+            let last3 = lastName.slice(0, 3).toLowerCase();
+
+            // Adding a random number (100-999) at the end
+            let randomNum = Math.floor(Math.random() * 900) + 100;
+
+            // Combining everything to form the username
+            let username = first3 + last3 + randomNum;
+
+            // Display the generated username
+            console.log("Generated Username: " + username);
+        }
+        // Example call to the function
+        generateUsername("Preethi", "Selvakumar");
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Palindrome Checker (Real-World Mini Project)</title>
+</head>
+
+<body>
+    <h1>Check Console if Your Input is a Palindrome or Not</h1>
+
+    <script>
+        function checkPalindrome() {
+            // 1. The user enters a word or sentence.
+            const input = prompt("Enter a word or sentence:");
+
+            // 2 & 3. Remove spaces and special characters, then convert to lowercase.
+            let cleaned = input.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+            //4. Check if the word is the same forward and backward.
+            const reversed = cleaned.split("").reverse().join("");
+
+            //5. Display "Palindrome" or "Not a Palindrome"
+            if (cleaned === reversed) {
+                console.log("The username is a palindrome.");
+            } 
+            else {
+                console.log("The username is not a palindrome.");
+            }
+        };
+
+        checkPalindrome();
+    </script>
+
+</body>
+
+</html>
