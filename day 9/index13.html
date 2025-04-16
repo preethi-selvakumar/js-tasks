@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS118</title>
+</head>
+
+<body>
+    <input type="text" id="myInput" value="Original Text">
+    <button id="changeBtn">Change Text</button>
+
+    <script>
+        let btn = document.getElementById("changeBtn");
+        let input = document.getElementById("myInput");
+
+        btn.addEventListener("click", function () {
+            input.value = "Updated Text!";
+        });
+    </script>
+</body>
+
+</html>

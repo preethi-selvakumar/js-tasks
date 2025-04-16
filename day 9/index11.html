@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS116</title>
+</head>
+
+<body>
+    <button id="addHeadingBtn">Add Heading</button>
+
+    <script>
+        let btn = document.getElementById("addHeadingBtn");;
+
+        btn.addEventListener("click", function () {
+            let newHeading = document.createElement("h2");
+            newHeading.innerText = "Welcome to My Website!";
+            document.body.appendChild(newHeading);
+        });
+    </script>
+</body>
+
+</html>

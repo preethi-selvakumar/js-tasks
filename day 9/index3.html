@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS108</title>
+</head>
+
+<body style="text-align:center; padding-top:50px;">
+
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sequi at, perferendis assumenda culpa itaque nemo aperiam maxime maiores saepe et, quae rerum molestiae dolorum a. Eaque cum facilis libero provident aut praesentium odio! Laudantium ab a soluta quasi, repellat eveniet labore nulla, dolores vitae facere consequuntur vero provident inventore.</p>
+    <button id="toggleBtn">Hide</button>
+
+    <script>
+        let para1 = document.getElementById("para");
+        let btn = document.getElementById("toggleBtn");
+
+        btn.onclick = function () {
+            para1.style.display = (para1.style.display === "none") ? "block" : "none";
+            btn.innerText = (para1.style.display === "none") ? "Show" : "Hide";
+        }
+    </script>
+</body>
+
+</html>

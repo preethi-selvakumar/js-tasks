@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS109</title>
+</head>
+
+<body>
+
+    <ul id="myList">
+        <li>FrontEnd Development</li>
+        <li>BackEnd Development</li>
+    </ul>
+
+    <button id="addBtn">Add Item</button>
+
+    <script>
+        let btn = document.getElementById("addBtn");
+        let list = document.getElementById("myList");
+
+        btn.onclick = function () {
+            let newItem = document.createElement("li");
+            newItem.innerHTML = "Full Stack Development";
+            list.appendChild(newItem);
+        }
+    </script>
+</body>
+
+</html>

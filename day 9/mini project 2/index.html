@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Stopwatch Timer (Real-World Mini Project)</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            background: linear-gradient(to right, #feb84f, #d8fe00);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #display {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .start,
+        .stop,
+        .reset {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .start {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .stop {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+
+        .reset {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Stopwatch Timer</h1>
+
+    <div id="display">0s</div>
+    <button id="startBtn" class="start">Start</button>
+    <button id="stopBtn" class="stop">Stop</button>
+    <button id="resetBtn" class="reset">Reset</button>
+
+    <script>
+        let seconds = 0;
+        let timer = null;
+
+        // 1. Start Timer
+        document.getElementById("startBtn").addEventListener("click", function () {
+            if (timer !== null) return;
+            timer = setInterval(function () {
+                seconds++;
+                document.getElementById("display").textContent = seconds + "s"; 
+            }, 1000);
+        });
+
+        // 2. Stop Timer
+        document.getElementById("stopBtn").addEventListener("click", function () {
+            clearInterval(timer);
+            timer = null;
+        });
+
+        // 3. Reset Timer
+        document.getElementById("resetBtn").addEventListener("click", function () {
+            clearInterval(timer);
+            timer = null;
+            seconds = 0;
+            document.getElementById("display").textContent = '0s'; 
+        });
+    </script>
+</body>
+
+</html>

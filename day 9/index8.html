@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS113</title>
+</head>
+
+<body>
+    <h2>Hover the image to add a border</h2>
+    <img src="./assets/images/server-room-modern-data-station-technology-free-image.webp" id="myImg" alt="Sample Image">
+
+    <script>
+        let img = document.getElementById("myImg");
+
+        img.addEventListener("mouseover", function () {
+            img.style.border = "5px solid red";
+        });
+        
+        img.addEventListener("mouseout", function () {
+            img.style.border = "none";
+        });
+    </script>
+</body>
+
+</html>

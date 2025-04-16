@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS117</title>
+</head>
+
+<body>
+    <div id="myDiv">
+        <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+    </div>
+
+    <button id="clearBtn">Clear Div</button>
+
+    <script>
+        let btn = document.getElementById("clearBtn");
+        let div = document.getElementById("myDiv");
+
+        btn.addEventListener("click", function () {
+            div.innerHTML = ""; 
+        });
+    </script>
+</body>
+
+</html>

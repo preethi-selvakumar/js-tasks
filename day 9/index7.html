@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - JS112</title>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus rerum quod nobis non eum officiis cumque delectus nihil perspiciatis veniam dolorum, quaerat ex itaque obcaecati amet nemo deleniti.Ipsam, enim commodi.Nemo ratione iure praesentium reiciendis, optio, dicta recusandae rem incidunt unde accusamus vel laudantium explicabo! Necessitatibus deserunt possimus voluptas?</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus harum consequuntur modi. Culpa exercitationem ipsum ea deserunt explicabo autem, quo rerum unde, quidem quos perferendis dicta molestiae eum, suscipit consequatur placeat laudantium nulla ad? Inventore obcaecati animi autem accusantium qui, porro ad nihil quis amet ratione nobis sapiente hic maiores.</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eum impedit ad eligendi voluptatibus, quasi laboriosam placeat animi eius asperiores quas, praesentium explicabo vitae labore ex sint consequatur molestiae pariatur rem. Et modi id, illum minus deserunt quasi numquam, alias ipsam eum eligendi fugiat? Cupiditate magni et vero neque quod.</p>
+
+    <button id="colorBtn">Change Text Color</button>
+
+    <script>
+        let btn = document.getElementById("colorBtn");
+
+        btn.onclick = function () {
+            let paragraphs = document.querySelectorAll("p");
+            paragraphs.forEach(function (para) {
+                para.style.color = "blue"; 
+            });
+        };
+    </script>
+</body>
+
+</html>
