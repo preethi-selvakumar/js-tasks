@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS123</title>
+</head>
+
+<body>
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter your password">
+
+    <button id="togglePassword">👁️</button>
+
+    <script>
+        const passwordField = document.getElementById("password");
+        const toggleButton = document.getElementById("togglePassword");
+
+        toggleButton.addEventListener("click", function () {
+            if (passwordField.type === "password") {
+                passwordField.type = "text"; 
+            } else {
+                passwordField.type = "password"; 
+            }
+        });
+    </script>
+
+</body>
+
+</html>

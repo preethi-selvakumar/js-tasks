@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS129</title>
+</head>
+
+<body>
+    <button id="playSoundBtn">Play Sound</button>
+    <audio id="sound" src="./assets/audio/click-234708.mp3"></audio>
+
+    <script>
+        const playSoundBtn = document.getElementById("playSoundBtn");
+        const sound = document.getElementById("sound");
+
+        playSoundBtn.addEventListener("click", function () {
+            sound.play();
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS124</title>
+</head>
+
+<body>
+
+    <h1>Move your mouse around the page!</h1>
+    <p>Mouse Coordinates: <span id="coords">X: 0, Y: 0</span></p>
+
+    <script>
+        const mouseCoordsElement = document.getElementById("coords");
+
+        document.addEventListener("mousemove", function (event) {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            mouseCoordsElement.textContent = `X: ${mouseX}, Y: ${mouseY}`;
+        });
+    </script>
+
+</body>
+
+</html>

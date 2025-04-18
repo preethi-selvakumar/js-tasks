@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Click Counter App</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #f9d423, #ff4e50);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #countDisplay {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #ffffff;
+            color: #333;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click Counter</h1>
+    <p id="countDisplay">Count: 0</p>
+
+    <button id="ClickBtn">Click Me</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let count = 0;
+
+        const countDisplay = document.getElementById('countDisplay');
+        const clickBtn = document.getElementById('ClickBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        clickBtn.addEventListener('click', () => {
+            count++;
+            countDisplay.textContent = `Count: ${count}`;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            countDisplay.textContent = `Count: ${count}`;
+        });
+    </script>
+
+</body>
+
+</html>

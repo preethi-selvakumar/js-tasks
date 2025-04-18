@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS127</title>
+</head>
+
+<body>
+
+    <h1>Click the Button Below to Make It Disappear</h1>
+    <button id="disappearBtn">Click to Disappear</button>
+
+    <script>
+        const disappearBtn = document.getElementById("disappearBtn");
+
+        disappearBtn.addEventListener("click", function () {
+            disappearBtn.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>

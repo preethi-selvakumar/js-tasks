@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS131</title>
+</head>
+
+<body>
+    <h1>Our Office Team</h1>
+    <img id="teamImage" src="./assets/images/group-positive-young-people-posing-together_23-2148431344.webp" alt="Team" width="300">
+
+    <br><br>
+
+    <button id="changeImageBtn">After Meeting Photo</button>
+
+    <script>
+        const image = document.getElementById("teamImage");
+        const button = document.getElementById("changeImageBtn");
+
+        button.addEventListener("click", function () {
+            image.src = "./assets/images/people-business-meeting-high-angle_23-2148911819.webp";
+
+        });
+    </script>
+
+</body>
+
+</html>

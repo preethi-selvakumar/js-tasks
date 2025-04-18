@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS128</title>
+</head>
+
+<body>
+
+    <button id="toggleBtn">More Information</button>
+
+    <div id="content" style="display: none;">
+        <h2>About Vetri Technology Solutions</h2>
+        <p>Vetri Technology Solutions is a leading IT training institution that provides professional courses in various technologies such as Web Development, JavaScript, ReactJS, and more. Our mission is to empower students with the necessary skills to succeed in the fast-paced tech industry.</p>
+        <p>Our instructors are highly experienced professionals who ensure that you gain hands-on experience and a solid understanding of the concepts. We offer flexible learning options to suit different needs and schedules.</p>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById("toggleBtn");
+        const content = document.getElementById("content");
+
+        toggleBtn.addEventListener("click", function () {
+            if (content.style.display === "none") {
+                content.style.display = "block"; 
+            } else {
+                content.style.display = "none"; 
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

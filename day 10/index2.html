@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - JS120</title>
+    <style>
+        #hoverArea {
+            width: 350px;
+            height: 180px;
+            background-color: #d0e6ff;
+            text-align: center;
+            line-height: 1.6;
+            font-size: 18px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hoverArea">
+        <strong>Vetri Technology Solutions</strong><br>
+        Learn in-demand IT courses like Web Development, UI/UX Design,<br>
+        and Software Testing with hands-on training and expert mentors.
+    </div>
+
+    <script>
+        const area = document.getElementById("hoverArea");
+
+        area.addEventListener("mouseenter", function () {
+            alert("Welcome to Vetri Technology Solutions!");
+        });
+    </script>
+
+</body>
+
+</html>
