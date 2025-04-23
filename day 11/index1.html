@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS132</title>
+</head>
+
+<body>
+    <h1>Enter Your Username</h1>
+    <input type="text" id="usernameInput" placeholder="Type your name" />
+    <button id="saveBtn">Save</button>
+    <button id="showBtn">Show</button>
+
+    <h2 id="display"></h2>
+
+    <script>
+        const input = document.getElementById("usernameInput");
+        const saveBtn = document.getElementById("saveBtn");
+        const showBtn = document.getElementById("showBtn");
+        const display = document.getElementById("display");
+
+        // Save username to localStorage
+        saveBtn.addEventListener("click", () => {
+            const name = input.value;
+            localStorage.setItem("username", name);
+            alert("Username saved!");
+        });
+
+        // Show username from localStorage
+        showBtn.addEventListener("click", () => {
+            const storedName = localStorage.getItem("username");
+            display.innerText = "Stored Username: " + storedName;
+        });
+
+    </script>
+
+</body>
+
+</html>

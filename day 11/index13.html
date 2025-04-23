@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS144</title>
+</head>
+
+<body>
+    <h2>Simple Quiz</h2>
+    <p>Which language is used for web development?</p>
+
+    <form id="quizForm">
+        <label><input type="radio" name="answer" value="Python"> Python</label><br>
+        <label><input type="radio" name="answer" value="JavaScript"> JavaScript</label><br>
+        <label><input type="radio" name="answer" value="C++"> C++</label><br><br>
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        const quizForm = document.getElementById("quizForm");
+        const result = document.getElementById("result");
+        const submitBtn = document.getElementById("submitBtn");
+
+        // Restore answer from sessionStorage
+        const savedData = JSON.parse(sessionStorage.getItem("quizAnswer"));
+        if (savedData && savedData.selected) {
+            const selectedInput = quizForm.elements["answer"];
+            for (let i = 0; i < selectedInput.length; i++) {
+                if (selectedInput[i].value === savedData.selected) {
+                    selectedInput[i].checked = true;
+                    result.textContent = `You previously selected: ${savedData.selected}`;
+                }
+            }
+        }
+
+        // Save answer to sessionStorage
+        submitBtn.addEventListener("click", () => {
+            const selected = quizForm.answer.value;
+            if (selected) {
+                const data = { selected: selected };
+                sessionStorage.setItem("quizAnswer", JSON.stringify(data));
+                result.textContent = `You selected: ${selected}`;
+            } else {
+                result.textContent = "Please choose an answer.";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

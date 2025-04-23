@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Notes App with LocalStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fef9ef;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .app {
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            resize: none;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff914d;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        .note {
+            background-color: #fff6dc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff914d;
+            position: relative;
+            text-align: left;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: red;
+            border: none;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <h1>Notes App</h1>
+
+        <textarea id="noteInput" placeholder="Write your notes here..."></textarea>
+        <button id="saveBtn">Save Note</button>
+
+        <h3>Your Notes</h3>
+        <div id="notesContainer"></div>
+    </div>
+
+    <script>
+        let notes = [];
+
+        const inputEl = document.getElementById('noteInput');
+        const saveBtn = document.getElementById('saveBtn');
+        const container = document.getElementById('notesContainer');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            notes = JSON.parse(localStorage.getItem('notes')) || [];
+            displayNotes();
+        });
+
+        saveBtn.addEventListener('click', addNote);
+
+        function displayNotes() {
+            container.innerHTML = '';
+            notes.forEach((text, idx) => {
+                const noteEl = document.createElement('div');
+                noteEl.className = 'note';
+                noteEl.textContent = text;
+
+                const delBtn = document.createElement('button');
+                delBtn.className = 'delete-btn';
+                delBtn.textContent = '×';
+                delBtn.addEventListener('click', () => deleteNote(idx));
+
+                noteEl.appendChild(delBtn);
+                container.appendChild(noteEl);
+            });
+        }
+
+        function addNote() {
+            const val = inputEl.value.trim();
+            if (!val) return;
+            notes.push(val);
+            localStorage.setItem('notes', JSON.stringify(notes));
+            inputEl.value = '';
+            displayNotes();
+        }
+
+        function deleteNote(i) {
+            notes.splice(i, 1);
+            localStorage.setItem('notes', JSON.stringify(notes));
+            displayNotes();
+        }
+    </script>
+</body>
+
+</html>

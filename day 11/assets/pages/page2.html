@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+</head>
+
+<body>
+    <h2>Welcome to Page 2</h2>
+    <p id="lastPageInfo"></p>
+
+    <a href="/index6.html">Go to Home</a> |
+    <a href="../pages/page1.html">Go to Page 1</a>
+
+    <script>
+        const lastPage = localStorage.getItem("lastVisited");
+        if (lastPage) {
+            document.getElementById("lastPageInfo").textContent = "Last visited page: " + lastPage;
+        }
+
+        localStorage.setItem("lastVisited", "Page 2");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS142</title>
+</head>
+
+<body>
+    <h1>Simple Survey Form</h1>
+
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br><br>
+
+        <label for="color">Favorite Color:</label>
+        <input type="text" id="color"><br><br>
+
+        <button type="button" id="saveBtn">Save</button>
+    </form>
+
+    <script>
+        const nameInput = document.getElementById("name");
+        const colorInput = document.getElementById("color");
+        const saveBtn = document.getElementById("saveBtn");
+
+        nameInput.value = sessionStorage.getItem("surveyName") || "";
+        colorInput.value = sessionStorage.getItem("surveyColor") || "";
+
+        // Save to sessionStorage
+        saveBtn.addEventListener("click", () => {
+            sessionStorage.setItem("surveyName", nameInput.value);
+            sessionStorage.setItem("surveyColor", colorInput.value);
+            alert("Survey saved in this session!");
+        });
+    </script>
+
+</body>
+
+</html>

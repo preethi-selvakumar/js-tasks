@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS136</title>
+</head>
+
+<body>
+
+    <h2>Enter Your Details</h2>
+
+    <form>
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" />
+        <br><br>
+
+        <label for="emailInput">Email:</label>
+        <input type="email" id="emailInput" />
+    </form>
+
+    <script>
+        const nameInput = document.getElementById("nameInput");
+        const emailInput = document.getElementById("emailInput");
+
+        nameInput.value = sessionStorage.getItem("name") || "";
+        emailInput.value = sessionStorage.getItem("email") || "";
+
+        nameInput.addEventListener("input", () => {
+            sessionStorage.setItem("name", nameInput.value);
+        });
+
+        emailInput.addEventListener("input", () => {
+            sessionStorage.setItem("email", emailInput.value);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Stopwatch with SessionStorage</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="display">00:00:00</h1>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let startTime = sessionStorage.getItem("startTime");
+        let isRunning = sessionStorage.getItem("isRunning") === "true";
+        let timer;
+
+        function updateTime() {
+            if (startTime) {
+                let timePassed = Date.now() - parseInt(startTime);
+                let hours = Math.floor(timePassed / 3600000);
+                let minutes = Math.floor((timePassed % 3600000) / 60000);
+                let seconds = Math.floor((timePassed % 60000) / 1000);
+
+                document.getElementById("display").textContent =
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                let savedTime = sessionStorage.getItem("savedTime");
+                startTime = Date.now() - (parseInt(savedTime) || 0);
+                sessionStorage.setItem("startTime", startTime);
+                sessionStorage.setItem("isRunning", "true");
+                isRunning = true;
+                timer = setInterval(updateTime, 1000);
+            }
+        }
+
+        function stopTimer() {
+            if (isRunning) {
+                clearInterval(timer);
+                sessionStorage.setItem("savedTime", Date.now() - startTime);
+                sessionStorage.setItem("isRunning", "false");
+                isRunning = false;
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            sessionStorage.clear();
+            document.getElementById("display").textContent = "00:00:00";
+            isRunning = false;
+        }
+
+        document.getElementById("startBtn").addEventListener("click", startTimer);
+        document.getElementById("stopBtn").addEventListener("click", stopTimer);
+        document.getElementById("resetBtn").addEventListener("click", resetTimer);
+
+        if (isRunning) {
+            timer = setInterval(updateTime, 1000);
+        }
+        updateTime();
+
+    </script>
+
+</body>
+
+</html>

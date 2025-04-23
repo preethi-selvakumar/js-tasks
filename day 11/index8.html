@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS139</title>
+</head>
+
+<body>
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addBtn">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        // Load tasks from localStorage
+        let tasks = JSON.parse(localStorage.getItem("todoList")) || [];
+
+        // Display tasks
+        function showTasks() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+                li.textContent = task;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Add task
+        document.getElementById("addBtn").addEventListener("click", () => {
+            const input = document.getElementById("taskInput");
+            const task = input.value.trim();
+            if (task) {
+                tasks.push(task);
+                localStorage.setItem("todoList", JSON.stringify(tasks));
+                input.value = "";
+                showTasks();
+            }
+        });
+
+        // Initial load
+        showTasks();
+    </script>
+
+</body>
+
+</html>

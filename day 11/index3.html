@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS134</title>
+</head>
+
+<body>
+
+    <h2>Items</h2>
+    <button id="penBtn">Add Pen</button>
+    <button id="bookBtn">Add Book</button>
+
+    <h3>Your Cart:</h3>
+    <ul id="cartList"></ul>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function displayCart() {
+            const cartList = document.getElementById("cartList");
+            cartList.innerHTML = ""; // Clear the current list
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                cartList.appendChild(li);
+            });
+        }
+
+        function addToCart(item) {
+            if (!cart.includes(item)) { 
+                cart.push(item);
+                localStorage.setItem("cart", JSON.stringify(cart)); // Save to localStorage
+                displayCart(); 
+            }
+        }
+
+        document.getElementById("penBtn").addEventListener("click", function () {
+            addToCart("Pen");
+        });
+
+        document.getElementById("bookBtn").addEventListener("click", function () {
+            addToCart("Book");
+        });
+
+        // show cart
+        displayCart();
+    </script>
+
+</body>
+
+</html>

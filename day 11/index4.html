@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS135</title>
+</head>
+
+<body>
+
+    <h2 id="statusMsg">Checking login status...</h2>
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn">Logout</button>
+
+    <script>
+        const statusMsg = document.getElementById("statusMsg");
+
+        function checkLoginStatus() {
+            const loggedIn = sessionStorage.getItem("loggedIn");
+            if (loggedIn === "true") {
+                statusMsg.textContent = "You are logged in ";
+            } else {
+                statusMsg.textContent = "You are logged out ";
+            }
+        }
+
+        // Login button
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            sessionStorage.setItem("loggedIn", "true");
+            checkLoginStatus();
+        });
+
+        // Logout button
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            sessionStorage.removeItem("loggedIn");
+            checkLoginStatus();
+        });
+
+        // Show status
+        checkLoginStatus();
+    </script>
+
+</body>
+
+</html>

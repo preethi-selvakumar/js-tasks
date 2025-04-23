@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 - JS133</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+          background-color: black;
+          color: white;
+        }
+        
+        button {
+          padding: 10px 20px;
+          margin: 20px;
+          cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Dark / Light Mode Example</h1>
+    <button id="toggleBtn">Toggle Mode</button>
+
+    <script>
+        const toggleBtn = document.getElementById("toggleBtn");
+        const body = document.body;
+
+        const currentMode = localStorage.getItem("mode");
+
+        if (currentMode === "dark") {
+            body.classList.add("dark-mode");
+        } 
+        else {
+            body.classList.add("light-mode");
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            body.classList.toggle("light-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("mode", "dark");
+            } 
+            else {
+                localStorage.setItem("mode", "light");
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
