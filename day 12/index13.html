@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS157</title>
+</head>
+
+<body>
+
+    <h1>Highest Priced Product</h1>
+
+    <p id="highestPrice"></p>
+
+    <script>
+        const products = [
+            { id: 1, name: 'Apple', price: 2 },
+            { id: 2, name: 'Banana', price: 1 },
+            { id: 3, name: 'Grapes', price: 5 },
+            { id: 4, name: 'Pineapple', price: 4 }
+        ];
+
+        function displayHighestPrice() {
+            const highestPricedProduct = products.reduce((max, product) => {
+                return product.price > max.price ? product : max;
+            }, products[0]);
+
+            const highestPriceElement = document.getElementById('highestPrice');
+            highestPriceElement.textContent = `Highest Priced Product: ${highestPricedProduct.name} - $${highestPricedProduct.price}`;
+        }
+
+        displayHighestPrice();
+    </script>
+
+</body>
+
+</html>

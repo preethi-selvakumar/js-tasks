@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS150</title>
+</head>
+
+<body>
+    <h1>List of Names</h1>
+    <ul id="name-list"></ul>
+
+    <script>
+        const people = [
+            { name: "Preethi", age: 22 },
+            { name: "Anu", age: 23 },
+            { name: "Gowtham", age: 24 }
+        ];
+
+        const names = people.map(person => person.name);
+
+        const list = document.getElementById("name-list");
+
+        names.forEach(name => {
+            const item = document.createElement("li");
+            item.textContent = name;
+            list.appendChild(item);
+        });
+    </script>
+</body>
+
+</html>

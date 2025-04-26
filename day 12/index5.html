@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS149</title>
+</head>
+
+<body>
+    <h1>Find Product</h1>
+    <ul id="product-list"></ul>
+
+    <script>
+        const products = [
+            { name: "Laptop", price: 50000 },
+            { name: "Phone", price: 20000 },
+            { name: "Tablet", price: 30000 }
+        ];
+
+        const searchedProduct = products.find(product => product.name === "Phone");
+
+        const list = document.getElementById("product-list");
+
+        if (searchedProduct) {
+            const item = document.createElement("li");
+            item.textContent = `${searchedProduct.name} - ₹${searchedProduct.price}`;
+            list.appendChild(item);
+        }
+        else {
+            const item = document.createElement("li");
+            item.textContent = "Product not found";
+            list.appendChild(item);
+        }
+    </script>
+</body>
+
+</html>

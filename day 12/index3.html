@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS147</title>
+</head>
+
+<body>
+    <h1>Check the console for sorted employee list by age</h1>
+
+    <script>
+        const employees = [
+            { name: "Preethi", age: 24 },
+            { name: "Anu", age: 25 },
+            { name: "Gowtham", age: 30 }
+        ];
+
+        employees.sort((a, b) => a.age - b.age);
+
+        console.log("Sorted by Age:", employees);
+    </script>
+</body>
+
+</html>

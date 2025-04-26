@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS155</title>
+</head>
+<body>
+
+    <h1>Remove Object by Property</h1>
+
+    <ul id="itemList"></ul>
+
+    <script>
+        const items = [
+            { id: 1, name: 'Apple' },
+            { id: 2, name: 'Banana' },
+            { id: 3, name: 'Orange' },
+            { id: 4, name: 'Grapes' }
+        ];
+
+        function removeItemById(itemId) {
+            const index = items.findIndex(item => item.id === itemId);
+            if (index !== -1) {
+                items.splice(index, 1);
+            }
+        }
+
+        removeItemById(2);
+
+        const itemList = document.getElementById('itemList');
+        items.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = item.name;
+            itemList.appendChild(listItem);
+        });
+    </script>
+
+</body>
+</html>

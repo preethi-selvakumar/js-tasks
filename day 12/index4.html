@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS148</title>
+</head>
+
+<body>
+    <h1>Students with Grade A</h1>
+    <ul id="gradeA-list"></ul>
+
+    <script>
+        const students = [
+            { name: "Preethi", grade: "A" },
+            { name: "Anu", grade: "B" },
+            { name: "Gowtham", grade: "A" }
+        ];
+
+        const gradeAStudents = students.filter(student => student.grade === "A");
+
+        const list = document.getElementById("gradeA-list");
+
+        gradeAStudents.forEach(student => {
+            const item = document.createElement("li");
+            item.textContent = student.name;
+            list.appendChild(item);
+        });
+    </script>
+</body>
+
+</html>

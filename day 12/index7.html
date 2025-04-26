@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS151</title>
+</head>
+
+<body>
+    <h1>Updated Students List</h1>
+    <ul id="student-list"></ul>
+
+    <script>
+        const students = [
+            { name: "Preethi", grade: "B" },
+            { name: "Anu", grade: "B" },
+            { name: "Gowtham", grade: "B" }
+        ];
+        
+        const studentToUpdate = students.find(student => student.name === "Preethi");
+        if (studentToUpdate) {
+            studentToUpdate.grade = "A";
+        }
+
+        const list = document.getElementById("student-list");
+
+        students.forEach(student => {
+            const item = document.createElement("li");
+            item.textContent = `${student.name} - Grade: ${student.grade}`;
+            list.appendChild(item);
+        });
+    </script>
+</body>
+
+</html>

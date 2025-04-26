@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS152</title>
+</head>
+
+<body>
+    <h1>Number of Students with Grade A</h1>
+    <p id="count"></p>
+
+    <script>
+        const students = [
+            { name: "Preethi", grade: "A" },
+            { name: "Anu", grade: "B" },
+            { name: "Gowtham", grade: "A" },
+            { name: "Vicky", grade: "C" }
+        ];
+
+        const gradeACount = students.filter(student => student.grade === "A").length;
+
+        const countElement = document.getElementById("count");
+        countElement.textContent = `Students with Grade A: ${gradeACount}`;
+    </script>
+</body>
+
+</html>

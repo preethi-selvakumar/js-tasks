@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS156</title>
+</head>
+<body>
+
+    <h1>Add New Item to Array</h1>
+
+    <button id="addItemButton">Add Item</button>
+
+    <ul id="itemList"></ul>
+
+    <script>
+        const items = [
+            { id: 1, name: 'Apple' },
+            { id: 2, name: 'Banana' }
+        ];
+
+        function addNewItem() {
+            const newItem = { id: items.length + 1, name: `Item ${items.length + 1}` };
+            items.push(newItem); 
+            displayItems(); 
+        }
+
+        function displayItems() {
+            const itemList = document.getElementById('itemList');
+            itemList.innerHTML = ''; 
+
+            items.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item.name;
+                itemList.appendChild(listItem);
+            });
+        }
+
+        document.getElementById('addItemButton').addEventListener('click', addNewItem);
+
+        displayItems();
+    </script>
+
+</body>
+</html>

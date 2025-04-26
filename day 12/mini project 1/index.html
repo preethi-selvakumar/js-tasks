@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Inventory Management System Requirements</title>
+</head>
+
+<body>
+
+    <h1>Inventory Management System</h1>
+
+    <div>
+        <h2>Check Stock Availability</h2>
+        <input type="text" id="searchInput" placeholder="Enter Product ID or Name">
+        <button id="checkStockButton">Check Stock</button>
+        <p id="stockStatus"></p>
+    </div>
+
+    <div>
+        <h2>Update Inventory</h2>
+        <input type="text" id="updateProductId" placeholder="Product ID">
+        <input type="number" id="updateQuantity" placeholder="Quantity to Add/Remove">
+        <button id="updateInventoryButton">Update Inventory</button>
+        <p id="updateStatus"></p>
+    </div>
+
+    <div>
+        <h2>Total Inventory Value</h2>
+        <button id="calculateValueButton">Calculate Total Value</button>
+        <p id="totalValue"></p>
+    </div>
+
+    <script>
+        // product data
+        const inventory = [
+            { id: 1, name: 'Apple', category: 'Fruit', quantity: 50, price: 1.2 },
+            { id: 2, name: 'Banana', category: 'Fruit', quantity: 30, price: 0.8 },
+            { id: 3, name: 'Carrot', category: 'Vegetable', quantity: 20, price: 1.0 },
+            { id: 4, name: 'Broccoli', category: 'Vegetable', quantity: 15, price: 1.5 }
+        ];
+
+        // Check Stock Availability by ID or Name
+        document.getElementById('checkStockButton').addEventListener('click', function () {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const product = inventory.find(item => item.id == searchTerm || item.name.toLowerCase() === searchTerm);
+
+            const stockStatus = document.getElementById('stockStatus');
+            if (product) {
+                stockStatus.textContent = `${product.name} (ID: ${product.id}) has ${product.quantity} units in stock.`;
+            } else {
+                stockStatus.textContent = 'Product not found!';
+            }
+        });
+
+        // Update Inventory (Add or Remove Stock)
+        document.getElementById('updateInventoryButton').addEventListener('click', function () {
+            const productId = parseInt(document.getElementById('updateProductId').value);
+            const quantityChange = parseInt(document.getElementById('updateQuantity').value);
+            const product = inventory.find(item => item.id === productId);
+
+            const updateStatus = document.getElementById('updateStatus');
+            if (product) {
+                product.quantity += quantityChange;
+                updateStatus.textContent = `Updated ${product.name}: New stock quantity is ${product.quantity}.`;
+            } else {
+                updateStatus.textContent = 'Product not found!';
+            }
+        });
+
+        // Calculate Total Inventory Value
+        document.getElementById('calculateValueButton').addEventListener('click', function () {
+            const totalValue = inventory.reduce((sum, product) => sum + (product.quantity * product.price), 0);
+            document.getElementById('totalValue').textContent = `Total Inventory Value: $${totalValue.toFixed(2)}`;
+        });
+    </script>
+
+</body>
+
+</html>

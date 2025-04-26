@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.Library Book Management System Requirements</title>
+</head>
+<body>
+
+    <h1>Library Book Management System</h1>
+
+    <!-- 1. Search Books -->
+    <input type="text" id="searchInput" placeholder="Search by Title, Author, or Genre">
+    <button id="searchBtn">Search</button>
+    <ul id="searchResults"></ul>
+
+    <!-- 2. Track Borrowed Books -->
+    <input type="number" id="borrowBookId" placeholder="Enter Book ID to Borrow">
+    <button id="borrowBtn">Borrow</button>
+    <input type="number" id="returnBookId" placeholder="Enter Book ID to Return">
+    <button id="returnBtn">Return</button>
+    <p id="status"></p>
+
+    <!-- 4. List Available Books -->
+    <button id="availableBooksBtn">Show Available Books</button>
+    <ul id="availableBooks"></ul>
+
+    <script>
+        // 1. Store Book Records
+        const books = [
+            { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', genre: 'Fiction', available: true },
+            { id: 2, title: '1984', author: 'George Orwell', genre: 'Dystopian', available: false, borrower: 'John' },
+            { id: 3, title: 'Moby-Dick', author: 'Herman Melville', genre: 'Adventure', available: true }
+        ];
+
+        // 2. Search Books
+        function searchBooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const result = books.filter(b => b.title.toLowerCase().includes(query) || b.author.toLowerCase().includes(query) || b.genre.toLowerCase().includes(query));
+            document.getElementById('searchResults').innerHTML = result.map(b => `<li>${b.title} by ${b.author} (${b.genre})</li>`).join('');
+        }
+
+        // 3. Track Borrowed Books
+        function borrowBook() {
+            const id = parseInt(document.getElementById('borrowBookId').value);
+            const book = books.find(b => b.id === id);
+            if (book && book.available) {
+                book.available = false;
+                book.borrower = 'User'; 
+                document.getElementById('status').textContent = `${book.title} has been borrowed.`;
+            } else {
+                document.getElementById('status').textContent = book ? `${book.title} is already borrowed.` : 'Book not found!';
+            }
+        }
+
+        function returnBook() {
+            const id = parseInt(document.getElementById('returnBookId').value);
+            const book = books.find(b => b.id === id);
+            if (book && !book.available) {
+                book.available = true;
+                book.borrower = null;
+                document.getElementById('status').textContent = `${book.title} has been returned.`;
+            } else {
+                document.getElementById('status').textContent = book ? `${book.title} was not borrowed.` : 'Book not found!';
+            }
+        }
+
+        // 4. List Available Books
+        function listAvailableBooks() {
+            const available = books.filter(b => b.available);
+            document.getElementById('availableBooks').innerHTML = available.map(b => `<li>${b.title} by ${b.author}</li>`).join('');
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', searchBooks);
+        document.getElementById('borrowBtn').addEventListener('click', borrowBook);
+        document.getElementById('returnBtn').addEventListener('click', returnBook);
+        document.getElementById('availableBooksBtn').addEventListener('click', listAvailableBooks);
+    </script>
+
+</body>
+</html>

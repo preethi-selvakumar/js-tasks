@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 - JS153</title>
+</head>
+<body>
+
+    <h1>Search for Items</h1>
+
+    <input type="text" id="searchInput" placeholder="Search by name" onkeyup="searchItems()">
+
+    <ul id="resultList"></ul>
+
+    <script>
+        const items = [
+            { id: 1, name: 'Apple' },
+            { id: 2, name: 'Banana' },
+            { id: 3, name: 'Orange' },
+            { id: 4, name: 'Grapes' },
+            { id: 5, name: 'Pineapple' }
+        ];
+
+        function searchItems() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filteredItems = items.filter(item => item.name.toLowerCase().includes(searchTerm));
+
+            const resultList = document.getElementById('resultList');
+            resultList.innerHTML = '';
+
+            filteredItems.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item.name;
+                resultList.appendChild(listItem);
+            });
+        }
+    </script>
+
+</body>
+</html>
