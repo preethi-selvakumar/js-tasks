@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - JS167</title>
+</head>
+
+<body>
+    <h1>Check the console to see the updated array</h1>
+
+    <script>
+        let students = [
+            { name: "Preethi", age: 22, course: "MERN" },
+            { name: "Arun", age: 23, course: "JavaScript" },
+            { name: "Divya", age: 21, course: "Python" }
+        ];
+
+        function addStudent(name, age, course) {
+            const newStudent = { name, age, course };  
+            students.push(newStudent);  
+            console.log("Updated Students Array:", students);  
+        }
+
+        addStudent("John", 25, "Java");
+        addStudent("Siva", 24, "ReactJS");
+    </script>
+</body>
+
+</html>

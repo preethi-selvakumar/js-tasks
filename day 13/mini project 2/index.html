@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Movie Search App (Fetch API + Async/Await)</title>
+</head>
+
+<body>
+
+    <h1>Movie Search</h1>
+
+    <input type="text" id="movieName" placeholder="Enter movie name">
+    <button id="searchButton">Search</button>
+
+    <div id="result"></div>
+
+    <script>
+        let button = document.getElementById('searchButton');
+        let result = document.getElementById('result');
+
+        button.addEventListener('click', function () {
+            let name = document.getElementById('movieName').value;
+
+            if (name === '') {
+                result.innerHTML = 'Please enter a movie name';
+                return;
+            }
+
+            fetch('https://www.omdbapi.com/?t=' + name + '&apikey=your_api_key')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (data.Response === "True") {
+                        result.innerHTML = `
+                            <h2>${data.Title} (${data.Year})</h2>
+                            <p>${data.Plot}</p>
+                            <img src="${data.Poster}" alt="Movie Poster" width="200">
+                        `;
+                    } else {
+                        result.innerHTML = 'Movie not found';
+                    }
+                })
+                .catch(function (error) {
+                    console.log('Error:', error);
+                    result.innerHTML = 'Something went wrong';
+                });
+        });
+    </script>
+
+</body>
+
+</html>

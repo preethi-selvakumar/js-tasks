@@ -1,0 +1,7 @@
+[
+    { "name": "Product A", "price": 100, "category": "Electronics" },
+    { "name": "Product B", "price": 300, "category": "Clothing" },
+    { "name": "Product C", "price": 600, "category": "Home Appliances" },
+    { "name": "Product D", "price": 50, "category": "Electronics" }
+]
+  

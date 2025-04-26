@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - JS163</title>
+</head>
+
+<body>
+    <h1>Check console for modified data</h1>
+
+    <script>
+        let students = [
+            { name: "Preethi", age: 22, course: "MERN" },
+            { name: "Arun", age: 23, course: "JavaScript" },
+            { name: "Divya", age: 21, course: "Python" }
+        ];
+
+        const studentToModify = students.find(student => student.name === "Arun");
+        if (studentToModify) {
+            studentToModify.course = "ReactJS";  
+        }
+
+        console.log(students); 
+    </script>
+</body>
+
+</html>

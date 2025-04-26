@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - JS161</title>
+</head>
+
+<body>
+    <h1>Check console to see the stored and retrieved data</h1>
+
+    <script>
+        const students = [
+            { name: "Preethi", age: 24 },
+            { name: "Arun", age: 23 },
+            { name: "Divya", age: 21 }
+        ];
+
+        localStorage.setItem('studentsData', JSON.stringify(students));
+
+        const storedData = localStorage.getItem('studentsData');
+
+        const studentsArray = JSON.parse(storedData);
+
+        console.log(studentsArray);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - JS169</title>
+</head>
+
+<body>
+    <h1>Check the dropdown for the fetched student names</h1>
+
+    <select id="studentDropdown">
+        <option value="">Select a student</option>
+    </select>
+
+    <script>
+        fetch('assets/json/students.json')  
+            .then(response => response.json()) 
+            .then(data => {
+                const dropdown = document.getElementById('studentDropdown');
+
+                data.forEach(student => {
+                    const option = document.createElement('option');
+                    option.value = student.name; 
+                    option.textContent = student.name; 
+                    dropdown.appendChild(option);  
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+
+</html>

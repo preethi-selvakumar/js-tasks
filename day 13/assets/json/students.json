@@ -1,0 +1,7 @@
+[
+    { "name": "Preethi", "age": 22, "course": "MERN" },
+    { "name": "Arun", "age": 23, "course": "JavaScript" },
+    { "name": "Divya", "age": 21, "course": "Python" },
+    { "name": "Siva", "age": 24, "course": "ReactJS" }
+]
+  

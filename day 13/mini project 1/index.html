@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. E-Commerce Product Catalog</title>
+</head>
+
+<body>
+    <h1>Product Catalog</h1>
+
+    <!-- Dropdown for price filtering -->
+    <label for="priceFilter">Filter by price below: </label>
+    <select id="priceFilter">
+        <option value="1000">All</option>
+        <option value="500">Below $500</option>
+        <option value="200">Below $200</option>
+    </select>
+
+    <!-- Dropdown for sorting by price -->
+    <label for="sortPrice">Sort by price: </label>
+    <select id="sortPrice">
+        <option value="lowToHigh">Price: Low to High</option>
+        <option value="highToLow">Price: High to Low</option>
+    </select>
+
+    <div id="productList"></div>
+
+    <script>
+        // 1. Fetch product data from products.json
+        fetch('assets/json/products.json')
+            .then(response => response.json())
+            .then(data => {
+                const productList = document.getElementById('productList');
+                const priceFilter = document.getElementById('priceFilter');
+                const sortPrice = document.getElementById('sortPrice');
+
+                function displayProducts(products) {
+                    productList.innerHTML = '';
+                    products.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.innerHTML = `<h3>${product.name}</h3><p>Price: $${product.price}</p><p>Category: ${product.category}</p>`;
+                        productList.appendChild(productDiv);
+                    });
+                }
+
+                // 2. Price filter functionality
+                priceFilter.addEventListener('change', () => {
+                    const filterValue = parseInt(priceFilter.value);
+                    const filteredProducts = data.filter(product => product.price <= filterValue);
+                    displayProducts(filteredProducts);
+                });
+
+                // 3. Sorting functionality (Low to High / High to Low)
+                sortPrice.addEventListener('change', () => {
+                    let sortedProducts;
+                    if (sortPrice.value === 'lowToHigh') {
+                        sortedProducts = data.sort((a, b) => a.price - b.price);
+                    } else {
+                        sortedProducts = data.sort((a, b) => b.price - a.price);
+                    }
+                    displayProducts(sortedProducts);
+                });
+
+                // Initial display
+                displayProducts(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+
+</html>

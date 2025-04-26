@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - JS168</title>
+</head>
+
+<body>
+    <h1>Check console for the updated student list after removal</h1>
+
+    <script>
+        let students = [
+            { name: "Preethi", age: 22, course: "MERN" },
+            { name: "Arun", age: 23, course: "JavaScript" },
+            { name: "Divya", age: 21, course: "Python" },
+            { name: "Siva", age: 24, course: "ReactJS" }
+        ];
+
+        function removeStudent(name) {
+            const index = students.findIndex(student => student.name === name); 
+            if (index !== -1) {
+                students.splice(index, 1);  
+                console.log(`${name} has been removed.`);
+            } else {
+                console.log(`${name} not found.`);
+            }
+            console.log("Updated Students Array:", students);  
+        }
+
+        removeStudent("Arun");
+    </script>
+</body>
+
+</html>
