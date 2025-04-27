@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - 06</title>
+</head>
+
+<body>
+    <h1>Image Gallery</h1>
+
+    <button id="loadImagesBtn">Load Images</button>
+
+    <div id="gallery"></div>
+
+    <script>
+        document.getElementById('loadImagesBtn').addEventListener('click', function () {
+            fetch('https://api.escuelajs.co/api/v1/products')
+                .then(response => response.json())
+                .then(data => {
+                    const gallery = document.getElementById('gallery');
+                    gallery.innerHTML = '';
+
+                    const limitedData = data.slice(0, 10);
+
+                    limitedData.forEach(product => {
+                        const img = document.createElement('img');
+                        img.src = product.images[0];
+                        img.alt = product.title;
+                        gallery.appendChild(img);
+                    });
+                })
+                .catch(error => {
+                    document.getElementById('gallery').innerText = 'Failed to load images.';
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+
+</html>

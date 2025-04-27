@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - 01</title>
+</head>
+
+<body>
+    <h1>Random Joke</h1>
+    <p id="joke">Loading...</p>
+    <button id="jokeBtn">Get New Joke</button>
+
+    <script>
+        function getJoke() {
+            fetch('https://official-joke-api.appspot.com/random_joke')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('joke').innerText = data.setup + " - " + data.punchline;
+                })
+                .catch(error => {
+                    document.getElementById('joke').innerText = 'Failed to load joke';
+                });
+        }
+
+        // First joke when page loads
+        getJoke();
+
+        document.getElementById('jokeBtn').addEventListener('click', getJoke);
+    </script>
+</body>
+
+</html>

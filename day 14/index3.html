@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - 03</title>
+</head>
+
+<body>
+    <h1>Submit Form</h1>
+
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter name" required>
+        <input type="email" id="email" placeholder="Enter email" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="responseMsg"></p>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('responseMsg').innerText = 'Form submitted successfully!';
+                })
+                .catch(error => {
+                    document.getElementById('responseMsg').innerText = 'Failed to submit form ';
+                });
+        });
+    </script>
+</body>
+
+</html>

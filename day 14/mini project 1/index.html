@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Typing Speed Tester (Fetch API)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Typing Speed Tester</h1>
+
+    <p>Type the sentence below as fast as you can:</p>
+
+    <!-- Display random sentence  -->
+    <div id="sentence"></div>
+
+    <!-- Input field to type -->
+    <input type="text" id="userInput" placeholder="Start typing..." disabled>
+    <!-- Button to start -->
+    <button id="startBtn">Start Typing</button>
+
+    <!-- Result display -->
+    <div id="result" class="hidden">
+        <p>Your typing speed: <span id="wpm"></span> WPM</p>
+    </div>
+
+    <script>
+        // 1. Fetch random sentence from API
+        function fetchRandomSentence() {
+            fetch('https://api.quotable.io/random') // Fetching random quote
+                .then(response => response.json()) // Convert to JSON
+                .then(data => {
+                    // 2. Display fetched sentence
+                    const sentence = data.content;
+                    document.getElementById('sentence').textContent = sentence;
+                })
+                .catch(error => console.error('Error fetching sentence:', error));
+        }
+
+        // 3. Start the typing test when button is clicked
+        document.getElementById('startBtn').addEventListener('click', function () {
+            fetchRandomSentence(); // Get the sentence
+            document.getElementById('userInput').disabled = false; // Enable input field
+            document.getElementById('userInput').value = ''; // Clear any previous input
+            document.getElementById('userInput').focus(); // Focus on the input field
+            document.getElementById('result').classList.add('hidden'); // Hide result initially
+            startTime = new Date(); // Record the start time
+        });
+
+        // 4. Track input and calculate typing speed
+        document.getElementById('userInput').addEventListener('input', function () {
+            const userInput = this.value; // User's current input
+
+            // 5. If user types the full sentence correctly
+            if (userInput === document.getElementById('sentence').textContent) {
+                endTime = new Date(); // Record end time
+                const timeTaken = (endTime - startTime) / 1000; // Time taken in seconds
+                const wordsTyped = userInput.split(' ').length; // Count the words
+                const wpm = Math.round((wordsTyped / timeTaken) * 60); // Words per minute calculation
+                document.getElementById('wpm').textContent = wpm; // Display WPM
+                document.getElementById('result').classList.remove('hidden'); // Show result
+                document.getElementById('userInput').disabled = true; // Disable input after completion
+            }
+        });
+    </script>
+
+</body>
+
+</html>

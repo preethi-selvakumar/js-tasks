@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Real-Time Air Quality Checker (Fetch API)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        select,
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Check Air Quality</h1>
+
+    <!-- Dropdown to select city -->
+    <select id="citySelector">
+        <option value="Delhi">New York</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chennai">Chennai</option>
+    </select>
+
+    <!-- Button to fetch data -->
+    <button id="fetchDataBtn">Get AQI</button>
+
+    <!-- Display AQI data -->
+    <div id="result" style="display: none;">
+        <p><strong>AQI (Air Quality Index):</strong> <span id="aqi"></span></p>
+        <p><strong>Pollutants Level:</strong> <span id="pollutants"></span></p>
+        <p><strong>Health Advice:</strong> <span id="healthAdvice"></span></p>
+    </div>
+
+
+    <script>
+        // Function to fetch air quality data
+        function fetchAirQuality(city) {
+            const apiKey = '';
+            const url = `http://api.airvisual.com/v2/city?city=${city}&country=India&key=${apiKey}`;
+
+            fetch(url) // Fetch data from the API
+                .then(response => response.json()) // Convert to JSON
+                .then(data => {
+                    // Get AQI and pollutants
+                    const aqi = data.data.current.pollution.aqius;
+                    const pollutants = data.data.current.pollution.mainus;
+                    const healthAdvice = getHealthAdvice(aqi);
+
+                    // Display the data on the page
+                    document.getElementById('aqi').textContent = aqi;
+                    document.getElementById('pollutants').textContent = pollutants;
+                    document.getElementById('healthAdvice').textContent = healthAdvice;
+                    document.getElementById('result').style.display = 'block'; // Show result
+                })
+                .catch(error => console.log('Error:', error)); // If error occurs
+        }
+
+        // Function to get health advice based on AQI
+        function getHealthAdvice(aqi) {
+            if (aqi <= 50) {
+                return 'Good: Air quality is good!';
+            } 
+            else if (aqi <= 100) {
+                return 'Moderate: Some may be affected.';
+            } 
+            else if (aqi <= 150) {
+                return 'Unhealthy for Sensitive Groups: People with health problems may be affected.';
+            } 
+            else {
+                return 'Unhealthy: Everyone may experience health effects.';
+            }
+        }
+
+        // Event listener to fetch data when button is clicked
+        document.getElementById('fetchDataBtn').addEventListener('click', function () {
+            const city = document.getElementById('citySelector').value; // Get selected city
+            fetchAirQuality(city); // Fetch air quality data for selected city
+        });
+    </script>
+
+</body>
+
+</html>

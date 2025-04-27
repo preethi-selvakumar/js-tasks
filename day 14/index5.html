@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - 05</title>
+</head>
+
+<body>
+    <h1>GitHub User Profile</h1>
+
+    <input type="text" id="username" placeholder="Enter GitHub username">
+    <button id="getUserBtn">Get Profile</button>
+    <br><br>
+    <div id="profileInfo">
+        Enter a GitHub username to see profile info.
+    </div>
+
+    <script>
+        document.getElementById('getUserBtn').addEventListener('click', function () {
+            const username = document.getElementById('username').value;
+            if (username === '') {
+                document.getElementById('profileInfo').innerText = 'Please enter a username.';
+                return;
+            }
+
+            fetch(`https://api.github.com/users/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Not Found') {
+                        document.getElementById('profileInfo').innerText = 'User not found ';
+                    } else {
+                        document.getElementById('profileInfo').innerHTML = `
+              <p><strong>Name:</strong> ${data.name || 'N/A'}</p>
+              <p><strong>Bio:</strong> ${data.bio || 'N/A'}</p>
+              <p><strong>Location:</strong> ${data.location || 'N/A'}</p>
+              <p><strong>Public Repos:</strong> ${data.public_repos}</p>
+              <img src="${data.avatar_url}" alt="Avatar" width="100">
+            `;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('profileInfo').innerText = 'Failed to fetch profile.';
+                });
+        });
+    </script>
+</body>
+
+</html>

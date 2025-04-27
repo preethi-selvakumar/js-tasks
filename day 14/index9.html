@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - 09</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #rates {
+            margin-top: 20px;
+        }
+
+        .rate {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Currency Exchange Rates</h1>
+
+    <button id="loadRatesBtn">Load Exchange Rates</button>
+
+    <div id="rates"></div>
+
+
+    <script>
+        document.getElementById('loadRatesBtn').addEventListener('click', function () {
+            fetch('https://api.exchangerate-api.com/v4/latest/USD')
+                .then(response => response.json())
+                .then(data => {
+                    const ratesDiv = document.getElementById('rates');
+                    ratesDiv.innerHTML = '';
+
+                    const rates = data.rates;
+                    for (const currency in rates) {
+                        const rateDiv = document.createElement('div');
+                        rateDiv.className = 'rate';
+                        rateDiv.innerHTML = `<strong>${currency}:</strong> ${rates[currency]}`;
+                        ratesDiv.appendChild(rateDiv);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
