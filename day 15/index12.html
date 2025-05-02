@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 12</title>
+</head>
+
+<body>
+    <h1>Recursive Function Limit</h1>
+    <button id="startBtn">Start Recursion</button>
+
+    <p id="message"></p>
+
+    <script>
+        const button = document.getElementById("startBtn");
+
+        button.addEventListener("click", function () {
+            const message = document.getElementById("message");
+            let callCount = 0;
+            const limit = 10;
+
+            function recursiveFunction() {
+                callCount++;
+                if (callCount > limit) {
+                    throw new Error("Function call limit exceeded! Preventing infinite recursion.");
+                }
+
+                console.log("Function call count:", callCount);
+                recursiveFunction(); 
+            }
+
+            try {
+                recursiveFunction();
+            } 
+            catch (error) {
+                message.innerText = "Error: " + error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

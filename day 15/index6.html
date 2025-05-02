@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 06</title>
+</head>
+
+<body>
+    <h1>Enter a Positive Number</h1>
+
+    <label for="numberInput">Number:</label>
+    <input type="text" id="numberInput">
+    <button id="submitBtn">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        function checkNumber() {
+            try {
+                let input = document.getElementById("numberInput").value;
+
+                try {
+                    if (isNaN(input)) {
+                        throw new TypeError("The input is not a valid number!");
+                    }
+                }
+                catch (error) {
+                    document.getElementById("message").innerText = "Error: " + error.message;
+                    return;
+                }
+
+                try {
+                    if (input <= 0) {
+                        throw new RangeError("The number must be positive!");
+                    }
+                }
+                catch (error) {
+                    document.getElementById("message").innerText = "Error: " + error.message;
+                    return;
+                }
+
+                document.getElementById("message").innerText = "Valid number: " + input;
+
+            }
+            catch (error) {
+                document.getElementById("message").innerText = "Unexpected Error: " + error.message;
+            }
+        }
+
+        const button = document.getElementById("submitBtn");
+        button.addEventListener("click", checkNumber);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 08</title>
+</head>
+
+<body>
+    <h1>Check the Console for Debugging Outputs</h1>
+
+    <script>
+        function calculateArea(length, width) {
+            if (typeof length !== 'number' || typeof width !== 'number') {
+                console.warn("Warning: Length or width is not a number!");
+                return;
+            }
+
+            if (length <= 0 || width <= 0) {
+                console.error("Error: Length and width must be positive values!");
+                return;
+            }
+
+            const area = length * width;
+            console.log("The area of the rectangle is:", area);
+        }
+
+        calculateArea(5, 10);
+        calculateArea(-5, 10);
+        calculateArea(5, 'ten');
+    </script>
+</body>
+
+</html>

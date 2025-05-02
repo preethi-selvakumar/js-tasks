@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 04</title>
+</head>
+
+<body>
+    <h1>Enter Your Age</h1>
+
+    <label for="ageInput">Age:</label>
+    <input type="number" id="ageInput">
+    <button id="submitBtn">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        const button = document.getElementById("submitBtn");
+
+        button.addEventListener("click", function () {
+            try {
+                let age = document.getElementById("ageInput").value;
+
+                if (age <= 0 || isNaN(age)) {
+                    throw new Error("Invalid age entered. Please enter a valid age.");
+                }
+
+                document.getElementById("message").innerText = "Your age is: " + age;
+
+            }
+            catch (error) {
+                document.getElementById("message").innerText = "Error: " + error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

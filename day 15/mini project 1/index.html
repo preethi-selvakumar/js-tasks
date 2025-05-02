@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. User Registration Form with Validation & Error Handling</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 50%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>User Registration</h2>
+
+    <form id="registrationForm" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <div class="error" id="nameError"></div>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <div class="error" id="emailError"></div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+
+            nameError.textContent = "";
+            emailError.textContent = "";
+
+            try {
+                if (name === "") {
+                    throw { field: "name", message: "Name is required." };
+                }
+
+                if (email === "") {
+                    throw { field: "email", message: "Email is required." };
+                }
+
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!emailPattern.test(email)) {
+                    throw { field: "email", message: "Enter a valid email address." };
+                }
+
+                alert("Registration successful!");
+
+            } catch (error) {
+                if (error.field === "name") {
+                    nameError.textContent = error.message;
+                } else if (error.field === "email") {
+                    emailError.textContent = error.message;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 02</title>
+</head>
+
+<body>
+    <h1>Catch ReferenceError Example</h1>
+
+    <button id="refErrorBtn">Click Me</button>
+
+    <p id="message"></p>
+
+    <script>
+        const button = document.getElementById("refErrorBtn");
+
+        button.addEventListener("click", function () {
+            try {
+                let total = marks + 10;
+            } 
+            catch (error) {
+                if (error instanceof ReferenceError) {
+                    document.getElementById("message").innerText = "ReferenceError caught: " + error.message;
+                } 
+                else {
+                    document.getElementById("message").innerText = "Other error: " + error.message;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 12</title>
+</head>
+
+<body>
+    <h1>Error Logging Example</h1>
+    <button id="logErrorBtn">Trigger Error</button>
+    <button id="showLogBtn">Show Error Log</button>
+    <p id="logOutput"></p>
+
+    <script>
+        const logButton = document.getElementById("logErrorBtn");
+        const showButton = document.getElementById("showLogBtn");
+        const output = document.getElementById("logOutput");
+
+        logButton.addEventListener("click", function () {
+            try {
+                let result = someUndefinedVariable + 1;
+            } 
+            catch (error) {
+                let errorLog = JSON.parse(localStorage.getItem("errorLog")) || [];
+                errorLog.push({
+                    message: error.message,
+                    time: new Date().toLocaleString()
+                });
+                localStorage.setItem("errorLog", JSON.stringify(errorLog));
+                alert("Error logged to localStorage!");
+            }
+        });
+
+        showButton.addEventListener("click", function () {
+            let errorLog = JSON.parse(localStorage.getItem("errorLog")) || [];
+            if (errorLog.length === 0) {
+                output.innerText = "No error logs found.";
+            } else {
+                output.innerText = errorLog.map((log, index) =>
+                    `${index + 1}. ${log.message} at ${log.time}`
+                ).join("\n");
+            }
+        });
+    </script>
+</body>
+
+</html>

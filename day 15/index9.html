@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 09</title>
+</head>
+
+<body>
+    <h1>Check Console Debugger in Loop</h1>
+    <button id="startBtn">Start Loop</button>
+
+    <script>
+        const button = document.getElementById("startBtn");
+
+        button.addEventListener("click", function () {
+            for (let i = 1; i <= 5; i++) {
+                debugger; 
+                console.log("Current value of i:", i);
+            }
+        });
+    </script>
+</body>
+
+</html>

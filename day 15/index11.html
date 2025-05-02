@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 11</title>
+</head>
+
+<body>
+    <h1>Try Catch Finally Demo</h1>
+    <button id="runBtn">Run Code</button>
+
+    <script>
+        const button = document.getElementById("runBtn");
+
+        button.addEventListener("click", function () {
+            const message = document.getElementById("message");
+            try {
+                let result = a + 10;
+                message.innerText = "Result is: " + result;
+            } 
+            catch (error) {
+                message.innerText = "Error: " + error.message;
+            } 
+            finally {
+                console.log("Cleanup done - This runs no matter what!");
+            }
+        });
+    </script>
+</body>
+
+</html>

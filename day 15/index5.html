@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 05</title>
+</head>
+
+<body>
+    <h1>Enter a Number</h1>
+
+    <label for="numberInput">Number:</label>
+    <input type="text" id="numberInput">
+    <button id="submitBtn">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        function checkIfNumber() {
+            try {
+                let input = document.getElementById("numberInput").value;
+
+                if (isNaN(input)) {
+                    throw new TypeError("The input is not a valid number!");
+                }
+
+                document.getElementById("message").innerText = "Valid number: " + input;
+
+            }
+            catch (error) {
+                if (error instanceof TypeError) {
+                    document.getElementById("message").innerText = "Error: " + error.message;
+                }
+            }
+        }
+
+        const button = document.getElementById("submitBtn");
+        button.addEventListener("click", checkIfNumber);
+    </script>
+</body>
+
+</html>

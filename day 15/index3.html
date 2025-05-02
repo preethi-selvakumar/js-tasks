@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 03</title>
+</head>
+
+<body>
+    <h1>Division by Zero Example</h1>
+
+    <button id="divideBtn">Divide</button>
+
+    <p id="result"></p>
+
+    <script>
+        const button = document.getElementById("divideBtn");
+
+        button.addEventListener("click", function () {
+            try {
+                let a = 10;
+                let b = 0;
+
+                if (b === 0) {
+                    throw new Error("Cannot divide by zero");
+                }
+
+                let result = a / b;
+                document.getElementById("result").innerText = "Result: " + result;
+
+            } 
+            catch (error) {
+                document.getElementById("result").innerText = "Error: " + error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

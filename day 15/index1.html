@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15 - 01</title>
+</head>
+
+<body>
+    <h1>syntax error using try...catch</h1>
+
+    <button id="errorBtn">Click Me</button>
+
+    <script>
+        const button = document.getElementById("errorBtn");
+
+        button.addEventListener("click", function () {
+            try {
+                let result = marks + 50;
+            } 
+            catch (error) {
+                document.getElementById("output").innerText = "Error caught: " + error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>
